@@ -1,0 +1,16 @@
+[package]
+name = "thunder-sdk" # 建议改个更具辨识度的名字
+version = "0.1.0"
+edition = "2024"
+links = "dk" # 关键：告诉 Cargo 这个包链接了名为 'dk' 的原生库
+
+[dependencies]
+jsonwebtoken = { version = "10.3", features = ["rust_crypto"] }
+serde = { version = "1.0.218", features = ["derive"] }
+chrono = "0.4.39"
+# 如果你的封装里用到了 libc 类型
+libc = "0.2" 
+
+[build-dependencies]
+# bindgen 用于生成绑定，建议锁定版本
+bindgen = "0.71.1"
